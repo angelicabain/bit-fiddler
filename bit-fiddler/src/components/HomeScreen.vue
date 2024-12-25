@@ -28,7 +28,7 @@ export default {
       strings: [],
       currentText: "",
       currentIndex: 0,
-      delay: 75,
+      delay: 65,
       canClick: false,
     };
   },
@@ -48,8 +48,8 @@ export default {
         this.currentText = this.strings[this.currentIndex];
         this.currentIndex++;
         setTimeout(this.animateText, this.delay);
-        if (this.currentIndex > 65){
-          this.delay = this.delay + 25;
+        if (this.currentIndex > 73){
+          this.delay = this.delay + 50;
         }
         
       }else {
