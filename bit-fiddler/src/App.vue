@@ -1,14 +1,20 @@
-<script setup>
+<template>
+  <router-view />
+</template>
 
+<script>
+export default {
+  name: "App",
+};
 </script>
 
-<template>
-  <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/sandbox">Sandbox</router-link>
-      <router-link to="/practice">Practice</router-link>
-    </nav>
-    <router-view></router-view>
-  </div>
-</template>
+<style>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
