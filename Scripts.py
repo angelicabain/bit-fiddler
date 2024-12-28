@@ -140,8 +140,7 @@ def createArrayOUTDATED(string):
         data.append(binaryString)
         print(data[-1])
         count += 1
-        if count > 1000:
-            break
+
         
                 
 
@@ -158,7 +157,7 @@ def createArrayOUTDATED(string):
 
 def main():
     string = 'Bit Fiddler'
-    createArray(string)
+    createArrayOUTDATED(string)
 
 
 if __name__ == "__main__":
