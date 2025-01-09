@@ -17,15 +17,15 @@
                 !
               </p>
             </div>
-            <div class="frame12">
-              <p class="operation-text">
+            <div class="frame12" @click="handleBitwiseNotClick">
+              <p class="operation-text" >
                 Bit-wise Not
               </p>
               <p class="operation-symbol">
                 ~
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleAddClick">
               <p class="operation-text">
                 Add
               </p>
@@ -33,7 +33,7 @@
                 +
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleSubtractClick">
               <p class="operation-text">
                 Subtract
               </p>
@@ -41,15 +41,15 @@
                 -
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleAndClick">
               <p class="operation-text">
                 And
               </p>
-              <p class="operation-symbol">
+              <p class="operation-symbol" >
                 &
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleOrClick">
               <p class="operation-text">
                 Or
               </p>
@@ -57,15 +57,15 @@
                 |
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleXorClick">
               <p class="operation-text">
                 XOR
               </p>
               <p class="operation-symbol">
-                +
+                ^
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleRightShiftClick">
               <p class="operation-text">
                 Right Shift
               </p>
@@ -73,7 +73,7 @@
                 >>
               </p>
             </div>
-            <div class="frame12">
+            <div class="frame12" @click="handleLeftShiftClick">
               <p class="operation-text">
                 Left Shift
               </p>
@@ -290,9 +290,33 @@
 export default {
   name: 'SandboxScreen',
   methods: {
+    //to do
     handleBooleanNotClick() {
-      console.log('Boolean Not clicked!');
-      // Add any logic you want here
+      console.log("boolean not clicked");
+    },
+    handleBitwiseNotClick() {
+      console.log('Bitwise Not clicked!');
+    },
+    handleAddClick() {
+      console.log('Test');
+    },
+    handleSubtractClick() {
+      console.log('Click');
+    },
+    handleAndClick() {
+      console.log('Click');
+    },
+    handleOrClick() {
+      console.log('Click');
+    },
+    handleXorClick() {
+      console.log('Click');
+    },
+    handleRightShiftClick() {
+      //for later....
+    },
+    handleLeftShiftClick() {
+      //...
     },
   },
 };
@@ -427,7 +451,7 @@ export default {
     cursor: pointer;
   }
   .operation-text:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
   .operation-symbol {
