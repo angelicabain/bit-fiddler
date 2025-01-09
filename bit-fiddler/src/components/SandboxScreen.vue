@@ -9,7 +9,7 @@
           <div class="sandbox-spacer-1"></div>
           <div class="frame22">
             <span class="operations">Operations</span>
-            <div class="frame12">
+            <div class="frame12" @click="handleBooleanNotClick">
               <p class="operation-text">
                 Boolean Not
               </p>
@@ -289,7 +289,16 @@
 <script>
 export default {
   name: 'SandboxScreen',
+  methods: {
+    handleBooleanNotClick() {
+      console.log('Boolean Not clicked!');
+      // Add any logic you want here
+    },
+  },
 };
+
+  //To do!
+
 </script>
 
 
@@ -414,7 +423,12 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    cursor: pointer;
   }
+  .operation-text:hover {
+  text-decoration: underline; 
+}
 
   .operation-symbol {
     display: flex;
