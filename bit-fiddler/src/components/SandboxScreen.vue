@@ -310,7 +310,7 @@ export default {
       console.log('Click');
     },
     handleXorClick() {
-      console.log('Click');
+      this.$router.push("/");
     },
     handleRightShiftClick() {
       //for later....
