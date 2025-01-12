@@ -78,7 +78,7 @@ export default {
 
 </script>
 
-<style src="./HomeScreen.css"></style>
+<!-- <style src="./HomeScreen.css"></style> -->
 
 
 
@@ -112,4 +112,136 @@ export default {
     opacity: 1;
   }
 }
+
+
+:root {
+  --default-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.page-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* max-width: 1920px; */
+  /* max-height: calc(1920px / 16 * 9); */
+  /* aspect-ratio: 16 / 9; */
+  background-color: #f8f9fa;
+}
+
+.view-frame-center {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+    flex: 1 0 0;
+}
+
+.bit-fiddler {
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    /* font-family: Inter; */
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre;
+    /* letter-spacing: 0.025em; */
+}
+
+.interactive-learning-tool {
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.spacer {
+  width: 10%;
+  height: 10%;
+  /* background: url(../assets/images/497b00d1-c571-4f05-b7d8-20216e07bb9e.png)
+    no-repeat center; */
+  background-size: cover;
+}
+
+.click-anywhere {
+    align-self: stretch;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.view-frame-bottom {
+    display: flex;
+    width: 1440px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+    flex-shrink: 0;
+}
+
+.developed-by {
+    align-self: stretch;
+    color: #CECECE;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .bit-fiddler {
+    font-size: 6vw;
+  }
+
+  .interactive-learning-tool {
+    font-size: 4vw;
+  }
+
+  .click-anywhere {
+    font-size: 2vw;
+  }
+
+  .spacer {
+    width: 20%;
+    height: 20%;
+  }
+}
+
+
 </style>
