@@ -287,6 +287,13 @@
 <script>
 export default {
   name: 'SandboxScreen',
+  data() {
+    return {
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+
+    };
+  },
   methods: {
     //to do
     handleBooleanNotClick() {
@@ -316,7 +323,17 @@ export default {
     handleLeftShiftClick() {
       //...
     },
+    updateWindowSize() {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+    },
   },
+  mounted() {
+    window.addEventListener('resize', this.updateWindowSize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateWindowSize);
+  }
 };
 
   //To do!
@@ -335,22 +352,48 @@ export default {
       flex: 1 0 0;
       align-self: stretch;
   }
+
+
+  .side-panel-header-text {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+
 </style>
 
 <!-- Center Frame -->
  <style scoped>
 
+
+
   .center-frame {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    justify-content: flex-sart;
     align-items: flex-start;
-    flex: 1 0 0;
-    align-self: stretch;
+    height: 100%;
   }
 
   .center-top-frame {
     display: flex;
-    height: 100px;
+    height: 12.5%;
     justify-content: center;
     align-items: flex-end;
     align-self: stretch;
@@ -385,6 +428,8 @@ export default {
     height: 50px;
     align-items: center;
     gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .binary-var-text {
@@ -408,7 +453,7 @@ export default {
     width: 35px;
     height: 50px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .bool-text {
@@ -494,6 +539,27 @@ export default {
     height: 50px;
   }
 
+  @media (max-width: 768px) {
+    .left-frame,
+    .right-frame {
+      display: none; 
+    }
+
+    .center-frame {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .left-frame,
+    .right-frame {
+      flex: 1 1 15%;
+    }
+
+    .center-frame {
+      flex: 1 1 70%;
+    }
+  }
 
 </style>
 
@@ -501,15 +567,22 @@ export default {
 <!-- Left Frame -->
  <style scoped>
 
-  .left-frame {
+  .left-frame,
+  .right-frame {
+    flex: 1 1 20%; 
+    min-width: 200px; 
+    max-width: 300px; 
+    height: 100%;
     display: flex;
-    width: 294px;
-    height: 857px;
     flex-direction: column;
     align-items: flex-end;
   }
 
-
+  .operations-frame,
+  .options-frame {
+    flex: 1;
+    width: 100%;
+  }
 
   .operations-frame {
     display: flex;
@@ -520,25 +593,6 @@ export default {
     align-self: stretch;
   }
 
-  .side-panel-header-text {
-    display: flex;
-    width: 200px;
-    height: 50px;
-    flex-direction: column;
-    justify-content: center;
-    color: #000;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
-    text-underline-position: from-font;
-  }
 
   .operation-frame {
     display: flex;
@@ -589,13 +643,13 @@ export default {
 <!-- Right Frame -->
 <style scoped>
 
-  .right-frame {
+  /* .right-frame {
     display: flex;
     width: 294px;
     height: 857px;
     flex-direction: column;
     align-items: flex-end;
-  }
+  } */
 
   .options-frame {
     display: flex;
