@@ -9,6 +9,7 @@
           <div class="spacer-1-8th"></div>
           <div class="operations-frame">
             <span class="side-panel-header-text">Operations</span>
+            <!-- the underlined stuff doesnt work :/  -->
             <div class="operation-frame"
                  :class="{ underlined: operationSelected === 'booleannot' }"
                  @click="handleBooleanNotClick">
@@ -219,6 +220,10 @@ export default {
     //to do
     handleComputeClick()
     {
+      //no op selected
+      this.binaryNumbers.fill('-1');
+
+      //Boolean Not
       if(this.operationSelected === "booleannot") {
         this.resultText = "!A =";
 
@@ -229,23 +234,32 @@ export default {
         } else {
           this.binaryNumbers = ['0', '0', '0', '0', '0', '0', '0', '0'];
         }
-
       }
+      //Bitwise Not
+      else if(this.operationSelected === "bitwisenot") {
+        this.resultText = "~A =";
+        this.binaryNumbers = this.inputA.map(value => (value === '1' ? '0' : '1'));
+      }
+
     },
     handleBooleanNotClick() {
       if (this.operationSelected === 'booleannot') {
-        // Deselect if already selected
         this.isOperationSelected = false;
         this.operationSelected = "";
       } else {
-        // Select Boolean Not
         this.isOperationSelected = true;
         this.operationSelected = "booleannot";
       }
 
     },
     handleBitwiseNotClick() {
-      console.log('Bitwise Not clicked!');
+      if (this.operationSelected === 'bitwisenot') {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "bitwisenot";
+      }
     },
     handleAddClick() {
       console.log('Test');
