@@ -1,15 +1,15 @@
 <template>
   <div class="main-container">
     <div class="page-view">
-      <div class="sandbox-view-frame-center">
+      <div class="view-frame-center">
           
-
-        <div class="sandbox-left-frame">
+        <!-- Left Frame -->
+        <div class="left-frame">
           <!-- TODO -->
-          <div class="sandbox-spacer-1"></div>
-          <div class="frame22">
-            <span class="operations">Operations</span>
-            <div class="frame12" @click="handleBooleanNotClick">
+          <div class="spacer-1-8th"></div>
+          <div class="operations-frame">
+            <span class="side-panel-header-text">Operations</span>
+            <div class="operation-frame" @click="handleBooleanNotClick">
               <p class="operation-text">
                 Boolean Not
               </p>
@@ -17,7 +17,7 @@
                 !
               </p>
             </div>
-            <div class="frame12" @click="handleBitwiseNotClick">
+            <div class="operation-frame" @click="handleBitwiseNotClick">
               <p class="operation-text" >
                 Bit-wise Not
               </p>
@@ -25,7 +25,7 @@
                 ~
               </p>
             </div>
-            <div class="frame12" @click="handleAddClick">
+            <div class="operation-frame" @click="handleAddClick">
               <p class="operation-text">
                 Add
               </p>
@@ -33,7 +33,7 @@
                 +
               </p>
             </div>
-            <div class="frame12" @click="handleSubtractClick">
+            <div class="operation-frame" @click="handleSubtractClick">
               <p class="operation-text">
                 Subtract
               </p>
@@ -41,7 +41,7 @@
                 -
               </p>
             </div>
-            <div class="frame12" @click="handleAndClick">
+            <div class="operation-frame" @click="handleAndClick">
               <p class="operation-text">
                 And
               </p>
@@ -49,7 +49,7 @@
                 &
               </p>
             </div>
-            <div class="frame12" @click="handleOrClick">
+            <div class="operation-frame" @click="handleOrClick">
               <p class="operation-text">
                 Or
               </p>
@@ -57,7 +57,7 @@
                 |
               </p>
             </div>
-            <div class="frame12" @click="handleXorClick">
+            <div class="operation-frame" @click="handleXorClick">
               <p class="operation-text">
                 XOR
               </p>
@@ -65,7 +65,7 @@
                 ^
               </p>
             </div>
-            <div class="frame12" @click="handleRightShiftClick">
+            <div class="operation-frame" @click="handleRightShiftClick">
               <p class="operation-text">
                 Right Shift
               </p>
@@ -73,7 +73,7 @@
                 >>
               </p>
             </div>
-            <div class="frame12" @click="handleLeftShiftClick">
+            <div class="operation-frame" @click="handleLeftShiftClick">
               <p class="operation-text">
                 Left Shift
               </p>
@@ -85,195 +85,196 @@
           </div>
         </div>
 
-        <div class="sandbox-center-frame">
-          <div class="frame21">
-            <span class="sandbox-text">Sandbox</span>
+        <!-- Center Frame -->
+        <div class="center-frame">
+          <div class="center-top-frame">
+            <span class="sandbox-main-text">Sandbox</span>
           </div>
-          <div class="frame23">
-            <div class="frame25">
-              <span class="var-name">A =</span>
-              <div class="frame24">
+          <div class="center-binary-frame">
+            <div class="binary-frame">
+              <span class="binary-var-text">A =</span>
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="bool-spacer"></div>
+              <div class="binary-spacer"></div>
             </div>
             
           </div>
 
 
-          <div class="frame23">
-            <div class="frame25">
-              <span class="var-name">B =</span>
-              <div class="frame24">
+          <div class="center-binary-frame">
+            <div class="binary-frame">
+              <span class="binary-var-text">B =</span>
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="bool-spacer"></div>
+              <div class="binary-spacer"></div>
             </div>
             
           </div>
 
 
 
-          <div class="frame28">
+          <div class="center-compute-frame">
             <span class="compute">Compute</span>
           </div>
-          <div class="spacer-center1"></div>
+          <div class="spacer-25"></div>
           
-          <div class="frame23">
-            <div class="frame25">
-              <span class="result-name">A | B =</span>
-              <div class="frame24">
+          <div class="center-binary-frame">
+            <div class="binary-frame">
+              <span class="binary-result-text">A | B =</span>
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">0</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="frame24">
+              <div class="bool-frame">
                 <span class="bool-text">1</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="bool-spacer-long"></div>
+              <div class="binary-spacer-long"></div>
             </div>
             
           </div>
 
-          <div class="spacer-center2"></div>
         </div>
 
-        <div class="sandbox-right-frame">
-          <div class="sandbox-spacer-1"></div>
-          <div class="frame52">
-            <span class="operations">Options</span>
-            <div class="frame12">
-              <p class="options-text">
+        <!-- Right Frame -->
+        <div class="right-frame">
+          <div class="spacer-1-8th"></div>
+          <div class="options-frame">
+            <span class="side-panel-header-text">Options</span>
+            <div class="option-frame">
+              <p class="option-text">
                 Highlight Values
               </p>
-              <p class="options-symbol">
+              <p class="option-symbol">
                 ON
               </p>
             </div>
-            <div class="frame12">
-              <p class="options-text">
+            <div class="option-frame">
+              <p class="option-text">
                 Show Steps
               </p>
-              <p class="options-symbol">
+              <p class="option-symbol">
                 OFF
               </p>
             </div>
-            <div class="frame12">
-              <p class="options-text">
+            <div class="option-frame">
+              <p class="option-text">
                 Show Carry
               </p>
-              <p class="options-symbol">
+              <p class="option-symbol">
                 OFF
               </p>
             </div>
-            <div class="frame12">
-              <p class="options-text">
+            <div class="option-frame">
+              <p class="option-text">
                 Signed
               </p>
-              <p class="options-symbol">
+              <p class="option-symbol">
                 OFF
               </p>
             </div>
-            <div class="frame12">
-              <p class="options-text">
+            <div class="option-frame">
+              <p class="option-text">
                 Show Integer Value
               </p>
-              <p class="options-symbol">
+              <p class="option-symbol">
                 OFF
               </p>
             </div>
 
           </div>
-          <div class="frame56">
+          <div class="practice-link-frame">
             <span class="feeling-confident">Feeling Confident?</span>
             <span class="try-practice">Try some practice problems</span>
           </div>
         </div>
       </div>
 
-      <div class="sandbox-view-frame-bottom">
+      <div class="view-frame-bottom">
         <span class="developed-by">
           Developed by Angelica Bain (dcf3mm) and Paris Phan (auj4yx), 2024
         </span>
@@ -282,10 +283,7 @@
   </div>
 </template>
 
-
-
-
-
+<!-- Scripts -->
 <script>
 export default {
   name: 'SandboxScreen',
@@ -325,38 +323,9 @@ export default {
 
 </script>
 
-
-<style>
-:root {
-    --default-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
-      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
-      "Source Han Sans CN", sans-serif;
-  }
-
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    overflow: hidden;
-  }
-
-  .page-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; 
-    height: 100%;
-  }
-
-  .sandbox-view-frame-center {
+<!-- General -->
+<style scoped>
+  .view-frame-center {
       display: flex;
       width: 100%;
       /* flex-direction: column; */
@@ -366,119 +335,12 @@ export default {
       flex: 1 0 0;
       align-self: stretch;
   }
+</style>
 
-  .sandbox-view-frame-bottom {
-      display: flex;
-      width: 1440px;
-      height: 50px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 21px;
-      flex-shrink: 0;
-  }
+<!-- Center Frame -->
+ <style scoped>
 
-  .developed-by {
-      align-self: stretch;
-      color: #CECECE;
-      text-align: center;
-      font-family: Inter;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-  }
-
-  .sandbox-spacer-1 {
-    height: 100px;
-    flex-shrink: 0;
-    align-self: stretch;
-  }
-
-  .frame22 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    flex: 1 0 0;
-    align-self: stretch;
-  }
-
-  .operations {
-    display: flex;
-    width: 200px;
-    height: 50px;
-    flex-direction: column;
-    justify-content: center;
-    color: #000;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
-    text-underline-position: from-font;
-  }
-
-  
-  
-  .frame12 {
-    display: flex;
-    width: 200px;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .operation-text {
-    display: flex;
-    width: 150px;
-    height: 25px;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex-shrink: 0;
-
-    color: #000;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    cursor: pointer;
-  }
-  .operation-text:hover {
-  text-decoration: underline;
-}
-
-  .operation-symbol {
-    display: flex;
-    height: 25px;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex: 1 0 0;
-
-    color: #000;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .sandbox-left-frame {
-    display: flex;
-    width: 294px;
-    height: 857px;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-
-  .sandbox-center-frame {
+  .center-frame {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -486,17 +348,7 @@ export default {
     align-self: stretch;
   }
 
-  .spacer-center1 {
-    flex: 1 0 0;
-    align-self: stretch;  
-  }
-
-  .spacer-center2 {
-    height: 157px;
-    align-self: stretch;
-  }
-
-  .frame21 {
+  .center-top-frame {
     display: flex;
     height: 100px;
     justify-content: center;
@@ -504,7 +356,7 @@ export default {
     align-self: stretch;
   }
 
-  .sandbox-text {
+  .sandbox-main-text {
     display: flex;
     width: 280px;
     height: 50px;
@@ -520,7 +372,7 @@ export default {
     line-height: normal;
   }
 
-  .frame23 {
+  .center-binary-frame {
     display: flex;
     height: 100px;
     justify-content: center;
@@ -528,14 +380,14 @@ export default {
     align-self: stretch;
   }
 
-  .frame25 {
+  .binary-frame {
     display: flex;
     height: 50px;
     align-items: center;
     gap: 10px;
   }
 
-  .var-name {
+  .binary-var-text {
     display: flex;
     width: 75px;
     flex-direction: column;
@@ -550,7 +402,8 @@ export default {
     font-weight: 400;
     line-height: normal;
   }
-  .frame24 {
+
+  .bool-frame {
     display: flex;
     width: 35px;
     height: 50px;
@@ -583,7 +436,7 @@ export default {
     background: #666;
   }
 
-  .frame28 {
+  .center-compute-frame {
     display: flex;
     height: 100px;
     padding: 10px;
@@ -615,7 +468,8 @@ export default {
     text-underline-position: from-font;
   }
 
-  .result-name {
+
+  .binary-result-text {
     display: flex;
     width: 125px;
     flex-direction: column;
@@ -631,16 +485,23 @@ export default {
     line-height: normal;
   }
 
-  .bool-spacer {
+  .binary-spacer {
     width: 75px;
     height: 50px;
   }
-  .bool-spacer-long {
+  .binary-spacer-long {
     width: 125px;
     height: 50px;
   }
 
-  .sandbox-right-frame {
+
+</style>
+
+
+<!-- Left Frame -->
+ <style scoped>
+
+  .left-frame {
     display: flex;
     width: 294px;
     height: 857px;
@@ -648,7 +509,95 @@ export default {
     align-items: flex-end;
   }
 
-  .frame52 {
+
+
+  .operations-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+
+  .side-panel-header-text {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+  .operation-frame {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .operation-text {
+    display: flex;
+    width: 150px;
+    height: 25px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    cursor: pointer;
+  }
+
+  .operation-text:hover {
+    text-decoration: underline;
+  }
+
+  .operation-symbol {
+    display: flex;
+    height: 25px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 0 0;
+
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+</style>
+
+<!-- Right Frame -->
+<style scoped>
+
+  .right-frame {
+    display: flex;
+    width: 294px;
+    height: 857px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .options-frame {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -657,7 +606,7 @@ export default {
     align-self: stretch;
   }
 
-  .frame56 {
+  .practice-link-frame {
     display: flex;
     height: 157px;
     flex-direction: column;
@@ -704,8 +653,14 @@ export default {
     text-underline-offset: auto;
     text-underline-position: from-font;
   }
+  .option-frame {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    gap: 10px;
+  }
 
-  .options-text {
+  .option-text {
     display: flex;
     width: 150px;
     height: 25px;
@@ -719,9 +674,13 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    cursor: pointer;
   }
 
-  .options-symbol {
+
+
+  .option-symbol {
     display: flex;
     height: 25px;
     flex-direction: column;
@@ -743,5 +702,3 @@ export default {
   }
 
 </style>
-
-  
