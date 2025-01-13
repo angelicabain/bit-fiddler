@@ -9,7 +9,9 @@
           <div class="spacer-1-8th"></div>
           <div class="operations-frame">
             <span class="side-panel-header-text">Operations</span>
-            <div class="operation-frame" @click="handleBooleanNotClick">
+            <div class="operation-frame"
+                 :class="{ underlined: operationSelected === 'booleannot' }"
+                 @click="handleBooleanNotClick">
               <p class="operation-text">
                 Boolean Not
               </p>
@@ -93,36 +95,8 @@
           <div class="center-binary-frame">
             <div class="binary-frame">
               <span class="binary-var-text">A =</span>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
+              <div class="bool-frame" v-for="(bit, index) in inputA" :key="index">
+                <span class="bool-text">{{ bit }}</span>
                 <div class="bool-underline"></div>
               </div>
               <div class="binary-spacer"></div>
@@ -134,36 +108,8 @@
           <div class="center-binary-frame">
             <div class="binary-frame">
               <span class="binary-var-text">B =</span>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
+              <div class="bool-frame" v-for="(bit, index) in inputB" :key="index">
+                <span class="bool-text">{{ bit }}</span>
                 <div class="bool-underline"></div>
               </div>
               <div class="binary-spacer"></div>
@@ -173,47 +119,19 @@
 
 
 
-          <div class="center-compute-frame">
+          <div class="center-compute-frame"  @click="handleComputeClick">
             <span class="compute">Compute</span>
           </div>
           <div class="spacer-25"></div>
           
           <div class="center-binary-frame">
             <div class="binary-frame">
-              <span class="binary-result-text">A | B =</span>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
+              <span class="binary-result-text"> {{ resultText }} </span>
+              <div class="bool-frame" v-for="(bit, index) in binaryNumbers" :key="index">
+                <span class="bool-text">{{ bit }}</span>
                 <div class="bool-underline"></div>
               </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">0</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="bool-frame">
-                <span class="bool-text">1</span>
-                <div class="bool-underline"></div>
-              </div>
-              <div class="binary-spacer-long"></div>
+              <div class="binary-spacer"></div>
             </div>
             
           </div>
@@ -287,10 +205,44 @@
 <script>
 export default {
   name: 'SandboxScreen',
+  data() {
+    return {
+      inputA: ['0', '0', '0', '0', '0', '0', '0', '0'],
+      inputB: ['0', '0', '0', '0', '0', '0', '0', '0'],
+      binaryNumbers: ['0', '0', '0', '0', '0', '0', '0', '0'],
+      resultText: "A | B =",
+      isOperationSelected: false,
+      operationSelected: "",
+    };
+  },
   methods: {
     //to do
+    handleComputeClick()
+    {
+      if(this.operationSelected === "booleannot") {
+        this.resultText = "!A =";
+
+        const isAllZero = this.inputA.every(value => value === '0');
+
+        if (isAllZero) {
+          this.binaryNumbers = ['0', '0', '0', '0', '0', '0', '0', '1'];
+        } else {
+          this.binaryNumbers = ['0', '0', '0', '0', '0', '0', '0', '0'];
+        }
+
+      }
+    },
     handleBooleanNotClick() {
-      console.log("boolean not clicked");
+      if (this.operationSelected === 'booleannot') {
+        // Deselect if already selected
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        // Select Boolean Not
+        this.isOperationSelected = true;
+        this.operationSelected = "booleannot";
+      }
+
     },
     handleBitwiseNotClick() {
       console.log('Bitwise Not clicked!');
@@ -466,6 +418,7 @@ export default {
     text-decoration-thickness: auto;
     text-underline-offset: auto;
     text-underline-position: from-font;
+    cursor: pointer;
   }
 
 
@@ -547,6 +500,11 @@ export default {
     gap: 10px;
   }
 
+  .operation-frame.underlined {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
   .operation-text {
     display: flex;
     width: 150px;
@@ -568,6 +526,7 @@ export default {
   .operation-text:hover {
     text-decoration: underline;
   }
+
 
   .operation-symbol {
     display: flex;
