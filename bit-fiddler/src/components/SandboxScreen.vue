@@ -9,10 +9,7 @@
           <div class="spacer-1-8th"></div>
           <div class="operations-frame">
             <span class="side-panel-header-text">Operations</span>
-            <!-- the underlined stuff doesnt work :/  -->
-            <div class="operation-frame"
-                 :class="{ underlined: operationSelected === 'booleannot' }"
-                 @click="handleBooleanNotClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'booleannot' }" @click="handleBooleanNotClick">
               <p class="operation-text">
                 Boolean Not
               </p>
@@ -20,7 +17,7 @@
                 !
               </p>
             </div>
-            <div class="operation-frame" @click="handleBitwiseNotClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'bitwisenot' }" @click="handleBitwiseNotClick">
               <p class="operation-text" >
                 Bit-wise Not
               </p>
@@ -28,7 +25,7 @@
                 ~
               </p>
             </div>
-            <div class="operation-frame" @click="handleAddClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'add' }" @click="handleAddClick">
               <p class="operation-text">
                 Add
               </p>
@@ -36,7 +33,7 @@
                 +
               </p>
             </div>
-            <div class="operation-frame" @click="handleSubtractClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'subtract' }" @click="handleSubtractClick">
               <p class="operation-text">
                 Subtract
               </p>
@@ -44,7 +41,7 @@
                 -
               </p>
             </div>
-            <div class="operation-frame" @click="handleAndClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'and' }" @click="handleAndClick">
               <p class="operation-text">
                 And
               </p>
@@ -52,7 +49,7 @@
                 &
               </p>
             </div>
-            <div class="operation-frame" @click="handleOrClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'or' }" @click="handleOrClick">
               <p class="operation-text">
                 Or
               </p>
@@ -60,7 +57,7 @@
                 |
               </p>
             </div>
-            <div class="operation-frame" @click="handleXorClick">
+            <div class="operation-frame" :class="{ underlined: operationSelected === 'xor' }" @click="handleXorClick">
               <p class="operation-text">
                 XOR
               </p>
@@ -106,7 +103,7 @@
           </div>
 
 
-          <div class="center-binary-frame">
+          <div class="center-binary-frame" v-if="showBFrame">
             <div class="binary-frame">
               <span class="binary-var-text">B =</span>
               <div class="bool-frame" v-for="(bit, index) in inputB" :key="index">
@@ -115,7 +112,6 @@
               </div>
               <div class="binary-spacer"></div>
             </div>
-            
           </div>
 
 
@@ -210,13 +206,18 @@ export default {
     return {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
-      inputA: ['0', '0', '0', '0', '0', '0', '0', '0'],
-      inputB: ['0', '0', '0', '0', '0', '0', '0', '0'],
+      inputA: ['0', '0', '0', '1', '0', '1', '1', '0'],
+      inputB: ['0', '0', '0', '0', '1', '0', '0', '1'],
       binaryNumbers: ['0', '0', '0', '0', '0', '0', '0', '0'],
       resultText: "A | B =",
       isOperationSelected: false,
       operationSelected: "",
     };
+  },
+  computed: {
+    showBFrame() {
+      return this.operationSelected !== "booleannot" && this.operationSelected !== "bitwisenot";
+    },
   },
   methods: {
     //to do
@@ -243,6 +244,39 @@ export default {
         this.binaryNumbers = this.inputA.map(value => (value === '1' ? '0' : '1'));
       }
 
+
+      // Add
+      else if (this.operationSelected === "add") {
+        this.resultText = "A + B =";
+        const sum = (parseInt(this.inputA.join(''), 2) + parseInt(this.inputB.join(''), 2)).toString(2);
+        this.binaryNumbers = sum.padStart(8, '0').split('');
+      }
+
+      // Subtract
+      else if (this.operationSelected === "subtract") {
+        this.resultText = "A - B =";
+        const difference = (parseInt(this.inputA.join(''), 2) - parseInt(this.inputB.join(''), 2)).toString(2);
+        this.binaryNumbers = difference.padStart(8, '0').split('');
+      }
+
+      // And
+      else if (this.operationSelected === "and") {
+        this.resultText = "A & B =";
+        this.binaryNumbers = this.inputA.map((bit, index) => (bit === '1' && this.inputB[index] === '1' ? '1' : '0'));
+      }
+
+      // Or
+      else if (this.operationSelected === "or") {
+        this.resultText = "A | B =";
+        this.binaryNumbers = this.inputA.map((bit, index) => (bit === '1' || this.inputB[index] === '1' ? '1' : '0'));
+      }
+
+      // Xor
+      else if (this.operationSelected === "xor") {
+        this.resultText = "A ^ B =";
+        this.binaryNumbers = this.inputA.map((bit, index) => (bit === this.inputB[index] ? '0' : '1'));
+      }
+
     },
     handleBooleanNotClick() {
       if (this.operationSelected === 'booleannot') {
@@ -252,7 +286,6 @@ export default {
         this.isOperationSelected = true;
         this.operationSelected = "booleannot";
       }
-
     },
     handleBitwiseNotClick() {
       if (this.operationSelected === 'bitwisenot') {
@@ -264,19 +297,53 @@ export default {
       }
     },
     handleAddClick() {
-      console.log('Test');
+      if (this.operationSelected === "add") {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "add";
+      }
     },
+
     handleSubtractClick() {
-      console.log('Click');
+      if (this.operationSelected === "subtract") {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "subtract";
+      }
     },
+
     handleAndClick() {
-      console.log('Click');
+      if (this.operationSelected === "and") {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "and";
+      }
     },
+
     handleOrClick() {
-      console.log('Click');
+      if (this.operationSelected === "or") {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "or";
+      }
     },
+
     handleXorClick() {
-      this.$router.push("/");
+      if (this.operationSelected === "xor") {
+        this.isOperationSelected = false;
+        this.operationSelected = "";
+      } else {
+        this.isOperationSelected = true;
+        this.operationSelected = "xor";
+      }
     },
     handleRightShiftClick() {
       //for later....
