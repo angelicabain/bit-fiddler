@@ -103,8 +103,8 @@
           </div>
 
 
-          <div class="center-binary-frame" v-if="showBFrame">
-            <div class="binary-frame">
+          <div class="center-binary-frame" >
+            <div class="binary-frame" v-if="showBFrame">
               <span class="binary-var-text">B =</span>
               <div class="bool-frame" v-for="(bit, index) in inputB" :key="index">
                 <span class="bool-text">{{ bit }}</span>
